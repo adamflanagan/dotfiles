@@ -3,8 +3,6 @@
 # You probably want to change the [user] section here since you are not me.
 # Also search in this file for FIXME- you'll want to well, fix them.
 
-[hub]
-        protocol = https
 [user]
 	name = Adam Flanagan
 	email = a.flanagan@gmail.com
@@ -40,3 +38,5 @@
 [filter "media"]
 	smudge = git-media-smudge %f
 	clean = git-media-clean %f
+[push]
+	default = simple

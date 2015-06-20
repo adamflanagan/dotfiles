@@ -21,10 +21,10 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 ###############################################################################
 
 # Set computer name (as done via System Preferences → Sharing)
-sudo scutil --set ComputerName "Adams-Mac"
-sudo scutil --set HostName "Adams-Mac"
-sudo scutil --set LocalHostName "Adams-Mac"
-sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "Adams-Mac"
+sudo scutil --set ComputerName "adams-mac"
+sudo scutil --set HostName "adams-mac"
+sudo scutil --set LocalHostName "adams-mac"
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "adams-mac"
 
 # Menu bar: show remaining battery percentage
 defaults write com.apple.menuextra.battery ShowPercent -string "YES"
