@@ -40,3 +40,5 @@
 	clean = git-media-clean %f
 [push]
 	default = simple
+[credential]
+	helper = osxkeychain
