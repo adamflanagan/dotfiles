@@ -1,0 +1,21 @@
+#!/bin/bash
+
+SSH_CONFIG="${HOME}/.ssh/config"
+TMP="${HOME}/.ssh/config.tmp"
+SSH_CONFIG_TEMPLATE="${HOME}/.ssh/config.template"
+
+function set_host {
+	APP_NAME=$1
+	DNS_NAME=$(aws ec2 describe-instances --filter Name=tag:Name,Values=test-$APP_NAME-service Name=instance-state-name,Values=running --query 'Reservations[*].Instances[0].PublicDnsName' --output text)
+	sed -i "" "s/%${APP_NAME}_host%/$DNS_NAME/g" $TMP
+	echo "$APP_NAME: $DNS_NAME"
+}
+
+cp $SSH_CONFIG_TEMPLATE $TMP
+
+echo "Setting hosts..."
+set_host "fundadmin"
+set_host "bricklane"
+set_host "caravel"
+
+mv $TMP $SSH_CONFIG

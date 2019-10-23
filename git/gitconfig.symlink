@@ -5,13 +5,13 @@
 
 [user]
 	name = Adam Flanagan
-	email = a.flanagan@gmail.com
+	email = adam@bricklane.com
         helper = osxkeychain
 [alias]
         co = checkout
-        promote = !$ZSH/bin/git-promote
-        wtf     = !$ZSH/bin/git-wtf
-        rank-contributers = !$ZSH/bin/git-rank-contributers
+        promote = !$DOT_FILES/bin/git-promote
+        wtf     = !$DOT_FILES/bin/git-wtf
+        rank-contributers = !$DOT_FILES/bin/git-rank-contributers
         count   = !git shortlog -sn
 [color]
         diff = auto
@@ -30,15 +30,15 @@
 [help]
         autocorrect = 1
 [difftool "sourcetree"]
-        cmd = /Applications/DiffMerge.app/Contents/MacOS/DiffMerge --nosplash \"$LOCAL\" \"$REMOTE\"
-        path = 
+	cmd = /Applications/DiffMerge.app/Contents/MacOS/DiffMerge --nosplash \"$LOCAL\" \"$REMOTE\"
+	path = 
 [mergetool "sourcetree"]
-        cmd = /Applications/DiffMerge.app/Contents/MacOS/DiffMerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
-        trustExitCode = true
+	cmd = /Applications/DiffMerge.app/Contents/MacOS/DiffMerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
+	trustExitCode = true
 [diff]
         tool = sourcetree
 [merge]
-        tool = sourcetree
+	tool = sourcetree
 [filter "media"]
 	smudge = git-media-smudge %f
 	clean = git-media-clean %f
@@ -50,3 +50,5 @@
 	clean = git lfs clean %f
 	smudge = git lfs smudge %f
 	required = true
+[commit]
+	template = /Users/adam/.stCommitMsg
