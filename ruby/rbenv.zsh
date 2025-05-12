@@ -1,17 +1,8 @@
-# rehash shims
-rbenv rehash 2>/dev/null
+# fun: https://bugs.ruby-lang.org/issues/14009
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
-# shell thing
-rbenv() {
-  command="$1"
-  if [ "$#" -gt 0 ]; then
-    shift
-  fi
-
-  case "$command" in
-  shell)
-    eval `rbenv "sh-$command" "$@"`;;
-  *)
-    command rbenv "$command" "$@";;
-  esac
-}
+# init according to man page
+if (( $+commands[rbenv] ))
+then
+  eval "$(rbenv init -)"
+fi
